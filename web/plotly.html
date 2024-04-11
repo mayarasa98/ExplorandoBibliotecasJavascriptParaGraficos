@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Exemplos de Gráficos com Plotly.js</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <!-- GOOGLE FONTS -->
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1 class="titulo-graficos">Exemplos de Gráficos com Plotly.js</h1>
+        </header>
+        <main>
+            <h2 class="segundo-titulo">Gráfico de Barras</h2>
+            <div id="plotlyChart"></div>
+            <br>
+            <h2 class="segundo-titulo">Gráfico Senoidal</h2>
+            <div id="senoidalChart" style="width:400px; height:400px;"></div>
+        </main>
+        <footer>
+            <button onclick="window.location.href = 'index.html'">Voltar para a página inicial</button>
+        </footer>
+        <script>
+            var trace1 = {
+                x: ['Girafas', 'Orangotangos', 'Macacos'],
+                y: [20, 14, 23],
+                type: 'bar'
+            };
+
+            var data = [trace1];
+
+            Plotly.newPlot('plotlyChart', data);
+        </script>
+
+        <script>
+            var x = [];
+            var y = [];
+            for (var i = 0; i < 360; i++) {
+                x.push(i);
+                y.push(Math.sin(i * Math.PI / 180));
+            }
+
+            var data = [{
+                    x: x,
+                    y: y,
+                    mode: 'lines',
+                    name: 'Senoidal'
+                }];
+
+            Plotly.newPlot('senoidalChart', data);
+        </script>
+    </body>
+</html>
